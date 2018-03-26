@@ -27,7 +27,7 @@ import java.util.ArrayList;
  */
 
 public class LauncherScrollDelegate extends LatteDelegate implements ViewPager.OnPageChangeListener, OnItemClickListener {
-    final String TAG = "LauncherScrollDelegate";
+    private static final String TAG = LauncherScrollDelegate.class.getSimpleName();
     private ConvenientBanner<Integer> mConvenientBanner;
 
     private final ArrayList<Integer> imgs = new ArrayList<>();

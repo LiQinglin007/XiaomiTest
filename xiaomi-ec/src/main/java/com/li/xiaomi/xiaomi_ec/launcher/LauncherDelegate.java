@@ -24,7 +24,7 @@ import java.util.Timer;
  */
 
 public class LauncherDelegate extends LatteDelegate implements View.OnClickListener, ITimerListener {
-    final String TAG = "LauncherDelegate";
+    private static final String TAG = LauncherDelegate.class.getSimpleName();
     AppCompatTextView mTimerTv;
     private Timer mTimer = null;
     int mCount = 5;

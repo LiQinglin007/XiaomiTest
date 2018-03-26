@@ -19,7 +19,7 @@ import com.li.xiaomi.xiaomi_ec.R;
  */
 
 public class SignInDelegate extends LatteDelegate implements View.OnClickListener {
-    private final String TAG = "SignInDelegate";
+    private static final String TAG = SignInDelegate.class.getSimpleName();
     AppCompatButton mSignIn;
     AppCompatEditText mPhoneEd;
     AppCompatEditText mPasswordEd;
