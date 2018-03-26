@@ -16,7 +16,6 @@ import com.li.xiaomi.xiaomi_core.net.callback.ISuccess;
 import com.li.xiaomi.xiaomi_core.ui.LoaderStyle;
 import com.li.xiaomi.xiaomi_core.utils.CheckStringEmptyUtils;
 import com.li.xiaomi.xiaomi_core.utils.LogUtils;
-import com.li.xiaomi.xiaomi_core.utils.PreferenceUtils;
 import com.li.xiaomi.xiaomi_core.utils.T;
 import com.li.xiaomi.xiaomi_core.utils.file.FileUtil;
 import com.li.xiaomi.xiaomitest.R;
@@ -63,13 +62,6 @@ public class ExampleDelegate extends LatteDelegate implements View.OnClickListen
         uploadBut.setOnClickListener(this);
         downBut.setOnClickListener(this);
         interceportBut.setOnClickListener(this);
-
-        Float asd = PreferenceUtils.getFloat("asd", 111);
-        LogUtils.Loge(TAG, "asd:" + asd);
-        PreferenceUtils.setFloat("asd", 123);
-        Float asd1 = PreferenceUtils.getFloat("asd", 124);
-        LogUtils.Loge(TAG, "asd1:" + asd1);
-
 
     }
 

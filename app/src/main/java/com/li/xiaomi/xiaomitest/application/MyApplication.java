@@ -22,7 +22,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //觉得很标准的构建者模式模式来实现项目的配置功能
         Latte.init(this).
                 withIcon(new FontAwesomeModule()).//配置字体文字
                 withIcon(new FontEcModule()).

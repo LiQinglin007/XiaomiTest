@@ -81,12 +81,39 @@ public class LauncherDelegate extends LatteDelegate implements View.OnClickListe
 
     //判断是否显示滑动启动页
     private void checkIsShowScroll() {
+
         if (PreferenceUtils.getBoolean(FinalData.IS_OPEN_APP, false)) {
             T.shortToast(getContext(), "打开过，要去首页了");
             LogUtils.Loge(TAG, "打开过");
         } else {
-            T.shortToast(getContext(), "没有打开过，要去轮播图了");
-            LogUtils.Loge(TAG, "没有打开过，这是第一次");
+//            // 启动新的Fragment，启动者和被启动者是在同一个栈的
+//            start(SupportFragment fragment)
+//            // 以某种启动模式，启动新的Fragment
+//            start(SupportFragment fragment, int launchMode)
+//            // 启动新的Fragment，并能接收到新Fragment的数据返回
+//            startForResult(SupportFragment fragment, int requestCode)
+//            // 启动目标Fragment，并关闭当前Fragment；不要尝试pop()+start()，动画会有问题
+//            startWithPop(SupportFragment fragment)
+
+
+//            // 当前Fragment出栈(在当前Fragment所在栈内pop)
+//            pop();
+//            // 出栈某一个Fragment栈内之上的所有Fragment
+//            popTo(Class fragmentClass/String tag, boolean includeSelf);
+//            // 出栈某一个Fragment栈内之上的所有Fragment。如果想出栈后，紧接着.beginTransaction()开始一个新事务，
+//            //请使用下面的方法， 防止多事务连续执行的异常
+//            popTo(Class fragmentClass, boolean includeSelf, Runnable afterTransaction);
+
+
+//            // 获取所在栈内的栈顶Fragment
+//            getTopFragment();
+//            // 获取当前Fragment所在栈内的前一个Fragment
+//            getPreFragment();
+//            // 获取所在栈内的某个Fragment，可以是xxxFragment.Class，也可以是tag
+//            findFragment(Class fragmentClass/String tag);
+
+            startWithPop(new LauncherScrollDelegate());
+
         }
     }
 }
