@@ -1,1 +1,1 @@
-include ':app', ':xiaomi-compiler', ':xiaomi-annotations', ':xiaomi-core', ':xiaomi-ec'
+include ':app', ':xiaomi-annotations', ':xiaomi-compiler', ':xiaomi-core', ':xiaomi-ec'

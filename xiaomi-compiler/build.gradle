@@ -1,8 +1,8 @@
 apply plugin: 'java-library'
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':xiaomi-annotations')
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':xiaomi-annotations')
 }
 
 sourceCompatibility = "1.7"
