@@ -1,9 +1,11 @@
 package com.li.xiaomi.xiaomi_core.app;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
+import com.li.xiaomi.xiaomi_core.utils.greendaoUtils.DBManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,9 +22,9 @@ import okhttp3.Interceptor;
 public class Configurator {
 
     //sharePrefrence的文件名称
-    public static final String PREFRENCE_NAME = "MyApplication";
+    public static final String PREFRENCE_NAME = "XiaomiTest";
     //数据库的文件名称
-    public static final String DATABASE_NAME = "MyApplication.db";
+    public static final String DATABASE_NAME = "XiaomiTest.db";
 
 
     //在不使用的时候，会及时的回收，在优化内存方面比价好
@@ -149,6 +151,7 @@ public class Configurator {
 
     /**
      * 配置SharedPreferences
+     *
      * @param sharedPreferences
      * @return
      */
@@ -156,6 +159,19 @@ public class Configurator {
         LATTE_CONFIGS.put(ConfigType.SHARED_PREFERENCES, sharedPreferences);
         return this;
     }
+
+    /**
+     * 配置数据库
+     *
+     * @param DBName
+     * @return
+     */
+    public final Configurator withDBGreenDao(String DBName) {
+        LATTE_CONFIGS.put(ConfigType.DBNAME, DBName);
+        return this;
+    }
+
+
 
     final <T> T getConfiguration(Object key) {
         checkConfiguration();

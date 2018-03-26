@@ -13,5 +13,6 @@ public enum ConfigType {
     CONFIGREADY,//是否完成初始化的标志位
     APPLICATIO_CONTEXT,//全局上下文
     ICON,
-    INTERCEPTOR//okhttp的拦截器
+    INTERCEPTOR,//okhttp的拦截器
+    DBNAME//数据库名
 }

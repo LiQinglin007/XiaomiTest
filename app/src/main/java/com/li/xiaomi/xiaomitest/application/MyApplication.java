@@ -27,7 +27,10 @@ public class MyApplication extends Application {
                 withIcon(new FontEcModule()).
                 withApiHost("http://127.0.0.1/").//配置网络请求地址
                 withSharedPreferences(getSharedPreferences(Configurator.PREFRENCE_NAME, Activity.MODE_PRIVATE)).//配置SharedPreference
+                withDBGreenDao(Configurator.DATABASE_NAME).//配置数据库
                 withInterceptors(new DebugInterceptor("test", R.raw.test)).//配置拦截器,配置请求的关键字
                 configure();
+        //初始化数据库
+        Latte.initDB();
     }
 }
