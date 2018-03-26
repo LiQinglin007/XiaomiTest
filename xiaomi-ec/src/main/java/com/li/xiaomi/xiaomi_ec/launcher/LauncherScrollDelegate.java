@@ -1,17 +1,22 @@
 package com.li.xiaomi.xiaomi_ec.launcher;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.li.xiaomi.xiaomi_core.delegates.LatteDelegate;
 import com.li.xiaomi.xiaomi_core.utils.FinalData;
 import com.li.xiaomi.xiaomi_core.utils.PreferenceUtils;
 import com.li.xiaomi.xiaomi_ec.R;
+import com.li.xiaomi.xiaomi_ec.sign.SignInDelegate;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +26,7 @@ import java.util.ArrayList;
  * 最后修改：
  */
 
-public class LauncherScrollDelegate extends LatteDelegate implements ViewPager.OnPageChangeListener {
+public class LauncherScrollDelegate extends LatteDelegate implements ViewPager.OnPageChangeListener, OnItemClickListener {
     final String TAG = "LauncherScrollDelegate";
     private ConvenientBanner<Integer> mConvenientBanner;
 
@@ -60,6 +65,27 @@ public class LauncherScrollDelegate extends LatteDelegate implements ViewPager.O
     }
 
     @Override
+    public void onItemClick(int position) {
+        if (position == (imgs.size() - 1)) {
+            startWithPop(new SignInDelegate());
+        }
+    }
+
+    class MyHandler extends Handler {
+        WeakReference<LauncherScrollDelegate> mWeakReference;
+
+        public MyHandler(LauncherScrollDelegate mLauncherScrollDelegate) {
+            mWeakReference = new WeakReference<LauncherScrollDelegate>(mLauncherScrollDelegate);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            startWithPop(new SignInDelegate());
+        }
+    }
+
+    @Override
     public void onBingView(@Nullable Bundle savedInstanceState, View rootView) {
 
     }
@@ -71,7 +97,10 @@ public class LauncherScrollDelegate extends LatteDelegate implements ViewPager.O
 
     @Override
     public void onPageSelected(int position) {
-
+        if (position == (imgs.size() - 1)) {
+            MyHandler myHandler = new MyHandler(this);
+            myHandler.sendEmptyMessageDelayed(0, 2000);
+        }
     }
 
     @Override

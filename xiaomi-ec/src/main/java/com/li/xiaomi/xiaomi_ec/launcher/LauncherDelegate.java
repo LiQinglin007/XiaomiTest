@@ -7,12 +7,11 @@ import android.view.View;
 
 import com.li.xiaomi.xiaomi_core.delegates.LatteDelegate;
 import com.li.xiaomi.xiaomi_core.utils.FinalData;
-import com.li.xiaomi.xiaomi_core.utils.LogUtils;
 import com.li.xiaomi.xiaomi_core.utils.PreferenceUtils;
-import com.li.xiaomi.xiaomi_core.utils.T;
 import com.li.xiaomi.xiaomi_core.utils.timer.BaseTimerTask;
 import com.li.xiaomi.xiaomi_core.utils.timer.ITimerListener;
 import com.li.xiaomi.xiaomi_ec.R;
+import com.li.xiaomi.xiaomi_ec.sign.SignInDelegate;
 
 import java.text.MessageFormat;
 import java.util.Timer;
@@ -83,8 +82,9 @@ public class LauncherDelegate extends LatteDelegate implements View.OnClickListe
     private void checkIsShowScroll() {
 
         if (PreferenceUtils.getBoolean(FinalData.IS_OPEN_APP, false)) {
-            T.shortToast(getContext(), "打开过，要去首页了");
-            LogUtils.Loge(TAG, "打开过");
+            startWithPop(new SignInDelegate());//去登录页面
+//            T.shortToast(getContext(), "打开过，要去首页了");
+//            LogUtils.Loge(TAG, "打开过");
         } else {
 //            // 启动新的Fragment，启动者和被启动者是在同一个栈的
 //            start(SupportFragment fragment)
