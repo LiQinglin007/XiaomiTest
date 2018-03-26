@@ -33,136 +33,13 @@ public class PreferenceUtils {
     }
 
     private static SharedPreferences.Editor getSharedPreferencesEditor() {
-        if (getSharedPreferences() != null) {
-            return getSharedPreferences().edit();
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        if (sharedPreferences!= null) {
+            return sharedPreferences.edit();
         } else {
             return null;
         }
     }
-
-    /**
-     * 存Float
-     *
-     * @param key   键
-     * @param value 值
-     */
-    public static void setFloat(String key, float value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putFloat(key, value);
-            getSharedPreferencesEditor().commit();
-        }
-    }
-
-    /**
-     * 取Float
-     *
-     * @param key     键
-     * @param devalue 默认值
-     * @return
-     */
-    public static Float getFloat(String key, float devalue) {
-        if (getSharedPreferences() != null) {
-            return getSharedPreferences().getFloat(key, devalue);
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * 存Float
-     *
-     * @param key   键
-     * @param value 值
-     */
-    public static void setFloatAsync(String key, float value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putFloat(key, value);
-            getSharedPreferencesEditor().apply();
-        }
-    }
-
-    /**
-     * 存Long
-     *
-     * @param key   键
-     * @param value 值
-     */
-    public static void setLong(String key, long value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putLong(key, value);
-            getSharedPreferencesEditor().commit();
-        }
-    }
-
-    /**
-     * 存Long
-     *
-     * @param key   键
-     * @param value 值
-     */
-    public static void setLongAsync(String key, long value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putLong(key, value);
-            getSharedPreferencesEditor().apply();
-        }
-    }
-
-    /**
-     * 取Long
-     *
-     * @param key     键
-     * @param devalue 默认值
-     * @return
-     */
-    public static Long getLong(String key, long devalue) {
-        if (getSharedPreferences() != null) {
-            return getSharedPreferences().getLong(key, devalue);
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * 存String
-     *
-     * @param key   键
-     * @param value 值
-     */
-    public static void setString(String key, String value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putString(key, value);
-            getSharedPreferencesEditor().commit();
-        }
-    }
-
-    /**
-     * 存String
-     *
-     * @param key   键
-     * @param value 值
-     */
-    public static void setStringAsync(String key, String value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putString(key, value);
-            getSharedPreferencesEditor().apply();
-        }
-    }
-
-    /**
-     * 取String
-     *
-     * @param key     键
-     * @param devalue 默认值
-     * @return
-     */
-    public static String getString(String key, String devalue) {
-        if (getSharedPreferences() != null) {
-            return getSharedPreferences().getString(key, devalue);
-        } else {
-            return null;
-        }
-    }
-
     /**
      * 取boolean
      *
@@ -171,8 +48,9 @@ public class PreferenceUtils {
      * @return
      */
     public static boolean getBoolean(String key, boolean devalue) {
-        if (getSharedPreferences() != null) {
-            return getSharedPreferences().getBoolean(key, devalue);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        if (sharedPreferences != null) {
+            return sharedPreferences.getBoolean(key, devalue);
         } else {
             return devalue;
         }
@@ -185,9 +63,10 @@ public class PreferenceUtils {
      * @param value 值
      */
     public static void setBoolean(String key, boolean value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putBoolean(key, value);
-            getSharedPreferencesEditor().commit();
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putBoolean(key, value);
+            sharedPreferencesEditor.commit();
         }
     }
 
@@ -198,11 +77,147 @@ public class PreferenceUtils {
      * @param value 值
      */
     public static void setBooleanAsync(String key, boolean value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putBoolean(key, value);
-            getSharedPreferencesEditor().apply();
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putBoolean(key, value);
+            sharedPreferencesEditor.apply();
         }
     }
+
+
+    /**
+     * 存Float
+     *
+     * @param key   键
+     * @param value 值
+     */
+    public static void setFloat(String key, float value) {
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putFloat(key, value);
+            sharedPreferencesEditor.commit();
+        }
+    }
+
+    /**
+     * 取Float
+     *
+     * @param key     键
+     * @param devalue 默认值
+     * @return
+     */
+    public static Float getFloat(String key, float devalue) {
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        if (sharedPreferences != null) {
+            return sharedPreferences.getFloat(key, devalue);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 存Float
+     *
+     * @param key   键
+     * @param value 值
+     */
+    public static void setFloatAsync(String key, float value) {
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putFloat(key, value);
+            sharedPreferencesEditor.apply();
+        }
+    }
+
+    /**
+     * 存Long
+     *
+     * @param key   键
+     * @param value 值
+     */
+    public static void setLong(String key, long value) {
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putLong(key, value);
+            sharedPreferencesEditor.commit();
+        }
+    }
+
+    /**
+     * 存Long
+     *
+     * @param key   键
+     * @param value 值
+     */
+    public static void setLongAsync(String key, long value) {
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putLong(key, value);
+            sharedPreferencesEditor.apply();
+        }
+    }
+
+    /**
+     * 取Long
+     *
+     * @param key     键
+     * @param devalue 默认值
+     * @return
+     */
+    public static Long getLong(String key, long devalue) {
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        if (sharedPreferences != null) {
+            return sharedPreferences.getLong(key, devalue);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 存String
+     *
+     * @param key   键
+     * @param value 值
+     */
+    public static void setString(String key, String value) {
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putString(key, value);
+            sharedPreferencesEditor.commit();
+        }
+    }
+
+    /**
+     * 存String
+     *
+     * @param key   键
+     * @param value 值
+     */
+    public static void setStringAsync(String key, String value) {
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putString(key, value);
+            sharedPreferencesEditor.apply();
+        }
+    }
+
+    /**
+     * 取String
+     *
+     * @param key     键
+     * @param devalue 默认值
+     * @return
+     */
+    public static String getString(String key, String devalue) {
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        if (sharedPreferences!= null) {
+            return sharedPreferences.getString(key, devalue);
+        } else {
+            return null;
+        }
+    }
+
+
 
     /**
      * 取int
@@ -212,8 +227,9 @@ public class PreferenceUtils {
      * @return
      */
     public static int getInt(String key, int devalue) {
-        if (getSharedPreferences() != null) {
-            return getSharedPreferences().getInt(key, devalue);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        if (sharedPreferences != null) {
+            return sharedPreferences.getInt(key, devalue);
         } else {
             return devalue;
         }
@@ -226,9 +242,10 @@ public class PreferenceUtils {
      * @param value 值
      */
     public static void setInt(String key, int value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putInt(key, value);
-            getSharedPreferencesEditor().commit();
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putInt(key, value);
+            sharedPreferencesEditor.commit();
         }
     }
 
@@ -239,9 +256,10 @@ public class PreferenceUtils {
      * @param value 值
      */
     public static void setIntAsync(String key, int value) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().putInt(key, value);
-            getSharedPreferencesEditor().apply();
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.putInt(key, value);
+            sharedPreferencesEditor.apply();
         }
     }
 
@@ -251,9 +269,10 @@ public class PreferenceUtils {
      * @param key
      */
     public static void remove(String key) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().remove(key);
-            getSharedPreferencesEditor().commit();
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.remove(key);
+            sharedPreferencesEditor.commit();
         }
     }
 
@@ -263,9 +282,10 @@ public class PreferenceUtils {
      * @param key
      */
     public static void removeAsync(String key) {
-        if (getSharedPreferencesEditor() != null) {
-            getSharedPreferencesEditor().remove(key);
-            getSharedPreferencesEditor().apply();
+        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferencesEditor();
+        if (sharedPreferencesEditor != null) {
+            sharedPreferencesEditor.remove(key);
+            sharedPreferencesEditor.apply();
         }
     }
 
